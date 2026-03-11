@@ -1,41 +1,46 @@
 # AI Experts Assignment (Python)
 
-## Overview
-
 This assignment evaluates your ability to:
 
-* set up a small Python project to run reliably (locally + in Docker),
-* pin dependencies for reproducible installs,
-* write focused tests to reproduce a bug,
-* implement a minimal, reviewable fix.
+- set up a small Python project to run reliably (locally + in Docker),
+- pin dependencies for reproducible installs,
+- write focused tests to reproduce a bug,
+- implement a minimal, reviewable fix.
 
 ---
-
 ## How to run the tests
 
-### Locally (Linux / macOS)
+### Locally (Linux / macOS / Windows)
 
-(Optional) Create a virtual environment:
+1. (Optional) Create a virtual environment:
 
-```
+```bash
+# Linux / macOS
 python3 -m venv venv
+
+# Windows
+python -m venv venv
 ```
 
-Activate the virtual environment:
+2. Activate the virtual environment:
 
-```
+```bash
+# Linux / macOS
 source venv/bin/activate
+
+# Windows (PowerShell)
+.\venv\Scripts\activate
 ```
 
-Install dependencies:
+3. Install dependencies:
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
-Run tests with pytest:
+4. Run tests with pytest:
 
-```
+```bash
 python -m pytest -v
 ```
 
@@ -43,19 +48,19 @@ python -m pytest -v
 
 ### With Docker
 
-Build the Docker image:
+1. Build the Docker image:
 
-```
+```bash
 docker build -t test_eskelete_assignment .
 ```
 
-Run the tests:
+2. Run the tests:
 
-```
+```bash
 docker run --rm test_eskelete_assignment
 ```
 
-(The --rm flag automatically removes the container after it finishes, keeping your system clean.)
+> The `--rm` flag automatically removes the container after it finishes.
 
 ---
 
@@ -63,25 +68,25 @@ docker run --rm test_eskelete_assignment
 
 ### 1) Dockerfile (required)
 
-Create a Dockerfile so the project can run the test suite in a non-interactive, CI-style environment.
+Create a `Dockerfile` so the project can run the test suite in a non-interactive, CI-style environment.
 
 Requirements:
 
-* requirements.txt exists and is used during build (pip install -r requirements.txt)
-* pytest must be included/pinned in requirements.txt
-* The image must run tests by default using:
+- `requirements.txt` exists and is used during build (`pip install -r requirements.txt`)
+- `pytest` must be included/pinned in `requirements.txt`
+- The image must run tests by default using:
 
-```
+```bash
 CMD ["python", "-m", "pytest", "-v"]
 ```
 
-The build must install dependencies from requirements.txt.
+- The build must install dependencies from `requirements.txt`.
 
 ---
 
 ### 2) requirements.txt (required)
 
-Create a requirements.txt with pinned versions, using this format:
+Create a `requirements.txt` with pinned versions, using this format:
 
 ```
 package==x.y.z
@@ -93,8 +98,8 @@ package==x.y.z
 
 Update this README to include:
 
-* how to run the tests locally,
-* how to build and run tests with Docker.
+- how to run the tests locally,
+- how to build and run tests with Docker.
 
 ---
 
@@ -104,32 +109,32 @@ There is a bug somewhere in this repository.
 
 Your tasks:
 
-* Identify the bug.
-* Apply the smallest possible fix to make the tests pass.
-* Keep the change minimal and reviewable (no refactors).
+- Identify the bug.
+- Apply the smallest possible fix to make the tests pass.
+- Keep the change minimal and reviewable (no refactors).
 
 ---
 
 ## Constraints
 
-* Keep changes minimal and reviewable.
-* Do not refactor unrelated code.
-* Do not introduce extra tooling unless required.
-* You may add tests and the smallest code change needed to fix the bug.
+- Keep changes minimal and reviewable.
+- Do not refactor unrelated code.
+- Do not introduce extra tooling unless required.
+- You may add tests and the smallest code change needed to fix the bug.
 
 ---
 
 ### 5) EXPLANATION.md (required)
 
-Create EXPLANATION.md (max 250 words) containing:
+Create `EXPLANATION.md` (max 250 words) containing:
 
-* What was the bug?
-* Why did it happen?
-* Why does your fix solve it?
-* One realistic case / edge case your tests still don’t cover.
+- **What was the bug?**
+- **Why did it happen?**
+- **Why does your fix solve it?**
+- **One realistic case / edge case your tests still don’t cover**
 
 ---
 
 ## Submission
 
-Submit a public GitHub repository URL containing your solution to the Google form link provided.
+- Submit a **public GitHub repository URL** containing your solution to the Google form link provided.
